@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NFM</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Corber&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="./static/images/favicon.ico">
+  <style>
+    .publication-title,
+    .publication-authors {
+      font-family: 'Corber', sans-serif;
+    }
+
+    .publication-title {
+      font-weight: bold;
+    }
+
+    .nav-buttons {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+    }
+
+    .nav-buttons .button {
+      margin: 0 10px;
+    }
+
+    .publication-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .link-block {
+      margin: 5px;
+    }
+
+    .button .emoji {
+      font-style: normal;
+      font-size: 1.2em;
+    }
+
+    .publication-links .button {
+      border-radius: 9999px;
+      /* This makes the corners fully rounded */
+      padding-left: 1.5em;
+      padding-right: 1.5em;
+    }
+
+    .publication-links .button .icon {
+      margin-right: 0.3em;
+    }
+
+    .custom-list {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .custom-list li {
+      position: relative;
+      padding-left: 1.5em;
+      margin-bottom: 1rem;
+    }
+
+    .custom-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #4169E1;
+      font-size: 1.5em;
+      line-height: 1;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* padding: 0 5rem; */
+    }
+
+    .hero-body .container {
+      max-width: 100%;
+      padding: 0 8rem;
+    }
+
+    .hero-body .column {
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .section .container {
+      width: 100%;
+      max-width: 1600px;
+      margin: 0 auto;
+      /* padding: 0 8rem; */
+    }
+
+    .section>.container>div {
+      width: 100%;
+      max-width: 1600px;
+      /* Ensure the inner div takes full width of the container */
+    }
+
+    .columns {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="" style="padding-top: 0;">
+    <div class="hero-body">
+      <div class="container">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title" style="font-size: 3.5rem; line-height: 1.2;">
+            <span style="color: rgb(255, 153, 0);">General Reasoning Agent </span>leveraging Navigation Foundational
+            Model
+          </h1>
+          <div class="is-size-4 publication-authors" style="margin-top: 2rem; ">
+            <span class="author-block">
+              <a href="https://github.com/sjl-git" target="_blank" style="font-size: 1.6rem;">Sungjae
+                Lee</a>,
+            </span>
+          </div>
+          <div class="publication-links" style="margin-bottom: 4rem;">
+            <span class="link-block">
+              <a href="#" class="button is-dark is-medium" style="pointer-events: none; opacity: 0.6;">
+                <span class="icon">
+                  <svg class="svg-inline--fa fa-github fa-w-16" aria-hidden="true" focusable="false" data-prefix="fab"
+                    data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"
+                    data-fa-i2svg="">
+                    <path fill="currentColor"
+                      d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z">
+                    </path>
+                  </svg><!-- <i class="fab fa-github"></i> Font Awesome fontawesome.com -->
+                </span>
+                <span>Code</span>
+              </a>
+            </span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div style="background-color: white; border-radius: 15px; padding: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        <div class="columns is-marginless">
+          <div class="column is-full">
+            <h2 class="title is-2" style="color: #4a4a4a; font-size: 2.0rem; align-self: flex-start;">Early Stage
+              Progress ...
+            </h2>
+            <!-- Insert two GIFs side by side -->
+            <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+              <a href="#" onclick="openModal(event, './static/gif/output_right.gif')">
+                <img src="./static/gif/output_right.gif" alt="Visual Arguments GIF 1"
+                  style="border-radius: 10px;">
+              </a>
+              <!-- <a href="#" onclick="openModal(event, 'https://drive.google.com/file/d/1ig0kwLKMltGRDPJrfFIMHmMd7ZDcusz1/view?usp=drive_link')"> -->
+                <img src="https://drive.google.com/file/d/1ig0kwLKMltGRDPJrfFIMHmMd7ZDcusz1/view?usp=drive_link" alt="Visual Arguments GIF 2"
+                  style="border-radius: 10px;">
+              <!-- </a> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div style="background-color: white; border-radius: 15px; padding: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        <div class="columns is-vcentered is-marginless"> <!-- Added is-vcentered class -->
+          <div class="columns is-full">
+            <div class="column is-half" style="display: flex; flex-direction: column; align-items: flex-start;">
+              <h2 class="title is-2" style="color: #4a4a4a; font-size: 2.0rem; align-self: flex-start;">Motivation</h2>
+              <ul class="custom-list" style="font-size: 1.0rem; align-self: flex-start;">
+                <li>
+                  Current VLA models are learned by one-stage <span style="color: #4169E1; font-weight: bold;">imitation
+                    learning</span>.
+                </li>
+                <li>
+                  Limiting <span style="color: #FFA500; font-weight: bold;">generalization</span>, specific only to
+                  target robot.
+                </li>
+                <li>
+                  Lack of <span style="color: #FFA500; font-weight: bold;">reasoning</span>, predicted actions are not
+                  interpretable. (unsafe)
+                </li>
+              </ul>
+            </div>
+
+            <div class="column is-half" style="display: flex; align-items: center;">
+              <!-- Added flex and align-items -->
+              <a href="#" onclick="openModal(event, './static/images/openvla.png')">
+                <figure class="image" style="max-width: 100%; text-align: center;">
+                  <img src="./static/images/openvla.png" alt="Multimodal literacy illustration">
+                </figure>
+              </a>
+              <figure class="image">
+                <img src=>
+              </figure>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+  </section>
+
+
+
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div style="background-color: white; border-radius: 15px; padding: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        <div class="columns is-vcentered is-marginless"> <!-- Added is-vcentered class -->
+          <div class="columns is-full">
+            <div class="column is-one-third" style="display: flex; flex-direction: column; align-items: flex-start;">
+              <h2 class="title is-2" style="color: #4a4a4a; font-size: 2.0rem; align-self: flex-start;">Solution?</h2>
+              <h5 class="title is-4" style="color: #4a4a4a; font-size: 1.5rem; align-self: flex-start;"> <span style="color: #4169E1; font-weight: bold;">Two Stage</span> Planner</span>
+              <ul class="custom-list" style="font-size: 1.0rem; align-self: flex-start;padding-top: 1cm;">
+                <li>
+                  Leverage interpretable and general <span style="color: #4169E1; font-weight: bold;">Navigation Foundation Model</span> for high level planner.
+                </li>
+              </ul>
+              <ul class="custom-list" style="font-size: 1.0rem; align-self: flex-start;">
+                <li>
+                  Additional <span style="font-weight: bold;">low level planner</span> for specific agents.
+                </li>
+              </ul>
+
+            </div>
+
+            <div class="column is-two-thirds" style="display: flex; justify-content: center; align-items: center;">
+              <a href="#" onclick="openModal(event, './static/images/big_arc.png')">
+                <figure class="image" style="max-width: 100%; text-align: center;">
+                  <img src="./static/images/big_arc.png" alt="Multimodal literacy illustration" style="width: 50%; display: block; margin: 0 auto;">
+                </figure>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div style="background-color: white; border-radius: 15px; padding: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        <div class="columns is-vcentered is-marginless"> <!-- Added is-vcentered class -->
+          <div class="columns is-full">
+            <div class="column is-one-third" style="display: flex; flex-direction: column; align-items: flex-start;">
+              <h2 class="title is-2" style="color: #4a4a4a; font-size: 2.0rem; align-self: flex-start;">Navigation Foundation Model (High Level Planner)</h2>
+              <ul class="custom-list" style="font-size: 1.0rem; align-self: flex-start;">
+                <li>
+                  Collect a massive amount of ego-centric driving videos with language instructions.
+                </li>
+              </ul>
+              <ul class="custom-list" style="font-size: 1.0rem; align-self: flex-start;">
+                <li>
+                  Label the collected videos with <span style="color: rgb(255, 153, 0);">language actions</span> (5 steering angles * 2 throttle levels) in an unsupervised manner.
+                  <br>TODO: Use SOTA LLMs to label the evidence and reasoning behind the actions.
+                </li>
+              </ul>
+              <ul class="custom-list" style="font-size: 1.0rem; align-self: flex-start;">
+                <li>
+                  Train VLMs (MiniCPM-v 2.6).
+                  <br>TODO: Implement CoT-like training (requires larger VLMs).
+                </li>
+              </ul>
+            </div>
+
+            <div class="column is-one-third" style="display: flex; justify-content: flex-end;">
+              <a href="#" onclick="openModal(event, './static/images/high_level_arc.png')">
+                <figure class="image" style="max-width: 100%;">
+                  <img src="./static/images/high_level_arc.png" alt="Multimodal literacy illustration">
+                </figure>
+              </a>
+            </div>
+
+            <div class="column is-one-third" style="display: flex; justify-content: flex-end;">
+              <a href="#" onclick="openModal(event, './static/images/high_level_output.png')">
+                <figure class="image" style="max-width: 100%;">
+                  <img src="./static/images/high_level_output.png" alt="Multimodal literacy illustration">
+                </figure>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div style="background-color: white; border-radius: 15px; padding: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        <h2 class="title is-2" style="color: #4a4a4a; font-size: 2.0rem; align-self: flex-start;"> How do we label language actions?</h2>
+        <div class="columns is-marginless">
+
+          <div class="column is-one-third">
+
+            <h3 class="title is-4" style="color: #4a4a4a; font-size: 2rem; align-self: flex-start;"> Pretraining <span style="color: #4169E1; font-weight: bold;">Latent Actions</span>
+            <ul class="custom-list" style="font-size: 1.0rem; align-self: flex-start; padding-top: 1cm;">
+              <li>
+                  Learning the latent action from the between image frames.
+              </li>
+              <li>
+                  Using VQ-VAE based objective.
+              </li>
+              <li>
+                  We can classify the latent action with small size of labeled data.
+              </li>
+              <li>
+                Works well!
+              </li>
+            </ul>
+          </div>
+          <div class="column is-one-third" style="display: flex; justify-content: flex-end;">
+            <a href="#" onclick="openModal(event, './static/images/latent_action.png')">
+              <figure class="image" style="max-width: 100%;">
+                <img src="./static/images/latent_action.png">
+              </figure>
+            </a>
+          </div>
+          <div class="column is-one-third" style="display: flex; justify-content: flex-end;">
+            <a href="#" onclick="openModal(event, './static/images/latent_action_result.png')">
+              <figure class="image" style="max-width: 100%;">
+                <img src="./static/images/latent_action_result.png">
+              </figure>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div style="background-color: white; border-radius: 15px; padding: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        <h2 class="title is-2" style="color: #4a4a4a; font-size: 2.0rem; align-self: flex-start;"> Diffusion Policy (Low Level Planner)</h2>
+        <div class="columns is-marginless">
+
+          <div class="column is-half">
+            <ul class="custom-list" style="font-size: 1.0rem; align-self: flex-start; padding-top: 1cm;">
+              <li>
+                Train diffusion policies to predict specific agent actions (future waypoints).
+              </li>
+              <li>
+                Conditions are high level actions and previous waypoints.
+              </li>
+            </ul>
+          </div>
+          <div class="column is-half" style="display: flex; justify-content: flex-end;">
+            <a href="#" onclick="openModal(event, './static/images/diffusion_policy.png')">
+              <figure class="image" style="max-width: 100%;">
+                <img src="./static/images/diffusion_policy.png">
+              </figure>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="imageModal" class="modal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); justify-content: center; align-items: center;">
+    <span class="close" onclick="closeModal()" style="position: absolute; top: 20px; right: 30px; font-size: 40px; color: white; cursor: pointer;">&times;</span>
+    <img id="modalImage" style="max-width: 90%; max-height: 90%;">
+  </div>
+
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template">Academic
+          Project Page Template</a> which was adopted from theֲ <a href="https://nerfies.github.io/">Nerfies</a> project
+        page.<br>
+        You are free to borrow the of this website, we just ask that you link back to this page in the footer. <br>
+        This website is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons
+          Attribution-ShareAlike 4.0 International License</a>.
+      </p>
+    </div>
+  </footer>
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const toggleDetails = document.getElementById('toggleDetails');
+      const detailsContent = document.getElementById('detailsContent');
+      const secondToggleContent = document.getElementById('secondToggleContent');
+
+      toggleDetails.addEventListener('click', function () {
+        if (detailsContent.style.display === 'none') {
+          detailsContent.style.display = 'block';
+          toggleDetails.innerHTML = '▲ Hide Details';
+          toggleDetails.style.transform = 'rotate(180deg)';
+          // Show the second toggle content
+          secondToggleContent.style.display = 'block';
+        } else {
+          detailsContent.style.display = 'none';
+          toggleDetails.innerHTML = '▼ Show Details';
+          toggleDetails.style.transform = 'rotate(0deg)';
+          // Hide the second toggle content
+          secondToggleContent.style.display = 'none';
+        }
+      });
+    });
+    const modal = document.getElementById("imageModal");
+    const modalImage = document.getElementById("modalImage");
+    
+    // Make modal accessible globally
+    window.openModal = function(event, imageSrc) {
+      event.preventDefault(); // Prevents page reload
+
+      // Append a timestamp to force GIF reload
+      const newSrc = imageSrc + "?t=" + new Date().getTime();
+
+      modalImage.src = ""; // Clear previous image
+      setTimeout(() => {
+        modalImage.src = newSrc; // Assign new image with timestamp
+      }, 10); // Small delay ensures a browser refresh
+
+      modal.style.display = "flex";
+    };
+
+    window.closeModal = function() {
+      modal.style.display = "none";
+    };
+
+    // Close modal when clicking outside the image
+    modal.addEventListener("click", function (event) {
+      if (event.target === modal) {
+        window.closeModal();
+      }
+    });
+
+  </script>
+</body>
+
+</html>
